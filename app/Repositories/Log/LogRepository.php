@@ -27,17 +27,9 @@ class LogRepository implements LogInterface
         $data = $this->redis->get('logs');
         return collect(json_decode($data))->map(function ($item) use($params){
             if(empty($params)){
-                return $item;
+                return searchDataLog($item,['date' => Carbon::now()->format('Y-m-d')]);
             } else {
-                if(stristr($item->bank , $params['bank']) !== false){
-                    return $item;
-                }
-                if(stristr($item->request->nomor_aplikasi , $params['nomor_aplikasi']) !== false){
-                    return $item;
-                }
-                if(stristr($item->request->nomor_rekening , $params['nomor_rekening']) !== false){
-                    return $item;
-                }
+                return searchDataLog($item,$params);
             }
         })->reject(function ($item) {
             return empty($item);
