@@ -21,7 +21,7 @@ class LogUpdateSchenduler extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Update Log to REDIS when every day at midnight';
 
     /**
      * Execute the console command.

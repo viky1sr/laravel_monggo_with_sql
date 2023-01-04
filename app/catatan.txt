@@ -1,0 +1,13 @@
+## GenerateSertifikatSchenduler ( Penjaminan Awal )
+langkah - langkah insert ke database
+1. opmt_sertifikat
+2. jika dd_bank_cabang === null ? insert dd_bank_cabang : false
+3. opmt_permohonan
+4. opmt_nasabah
+5. opmt_nasabah_rek
+6. opmt_transaksi_penjaminan
+7. opmt_sektor
+8. opmt_pembayaran_ijp
+
+setelah Finish lanjut ke function generate_angsuran  dan insert untuk angsuran ijp per tahun
+9. opmt_angsuran_ijp

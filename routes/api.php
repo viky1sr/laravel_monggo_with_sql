@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\Auth\AuthController;
+use App\Http\Controllers\api\BankSulSelBar\BankSulSelBarController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +18,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::post('/v1/auth/login',[AuthController::class,'login']);
+
+Route::controller(BankSulSelBarController::class)->group( function () {
+    Route::prefix('BankSulSelBar')->group(function (){
+        Route::post('/penjaminan','storePenjaminan');
+    });
 });
