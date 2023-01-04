@@ -45,6 +45,7 @@ class User extends Authenticatable  implements JWTSubject
         'id_dd_user',
         'username',
         'password',
+        'id_dd_bank'
     ];
 
     /**
